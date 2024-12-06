@@ -1,0 +1,135 @@
+*{
+    padding: 0;                                                    /* denn Innenabstand von Elementen auf O */
+    margin: 0;                                                      /* denn Außenabstand von Elementen auf 0*/
+    box-sizing: border-box;                                     /* Alle Elemente der Seite sollen den selben Berechnungsansatz für Ihre Größe haben */
+    list-style: none;                                            /* Keine Nummerierung oder Zahlen in Listen die ul oder ol haben ungeordnete oder geordnete Listen*/                                                    
+    text-decoration: none;                                           /* Entfernt alle text gestaltungen dick durchgestrichen oder unterstrichen */
+    font-family: "Roboto", sans-serif;                              /*font von google fonts, als standart für alles */
+}
+
+
+:root{                                                                              /* feste Werte die man mit var() nutzen kann und nur den Namen(--) eingeben muss, ist gut wenn vieles einheitliche Fonts oder Farbe hat */ 
+    --Background-color: #0c0c0c;                                                            /* Hintergrundfarbe, Background, die Namen(--) können egal wie heissen */
+    --text-color: #fff;                                                                      /* Text Farbe*/ 
+    --main-color: #ae8957;                                                               
+    
+    --big-font: 6.6rem;
+    --p-font: 1rem;
+}
+
+body{
+    background: var(--Background-color);         
+    color: var(--text-color);                                                           /* Schrift farbe für den gesamten Body Teil */
+}
+
+
+header{
+    position: fixed;                                                                    /* der headerteil bleibt fixiert, wenn die seite gescrollt wird bleibt der Header an der selben Position */
+    width: 100%;                                                                         /* der header nimmt den ganzen Ansichtsbereich der Seite 100% */
+    top: 0;                                                                             /* header wird ganz oben platziert auf der Seite */
+    right: 0;
+    z-index: 1000;                                                                      /* Header block befindet sich oberhalb von anderen Elementen auf der Seite falls sie sich überlappen */
+    padding: 53px 7%;                                                                   /* Header padding PBM ist 53px oben und unten, und 7% links und rechts der gesamtbreite vom Viewport */
+    display: flex;                                                                      /* header verwendet das Flex-Box Layout*/
+    align-items: center;                                                                /* vertikal zentriert alle elemente die sich im Header befinden FlexKommand */
+    justify-content: space-between;                                                      /* Flex element, maximaler Abstant voneinander positioniert, erste Element links und das letzte Rechts, der rest gleichmäßig zwischen verteilt */
+    transition: all 0.5s ease;                                                           /* übergangsanimation, dauer halbe sek. ease effekt animation, wenn sich die Seite öffnet sich der header bildet mit animationen */
+}
+
+.logo img {                                                                              /* img tag der sich innerhalb in der klasse logo befindet */
+    width: 100%;                                                                            /* wird auf 100% auf das übergeordnete Container skaliert */
+    height: auto;                                                                               /* passt sich automatisch an damit die höhe gleich bleibt zum verhältnis */
+}
+
+.navlist{
+    display: flex;                                                                      /*inhalte sind horizontal geordnet*/
+}
+
+.navlist a{
+display: inline-block;                                                                   /* links mit <a> sind standartmäßig nicht nebeneinander, mit inline block werden diese neben einander angezeigt*/
+margin: 0 35px;                                                                             /*äußere Abstand, 0 oben und unten keinen Abstand 35px links und rechts haben auf horizontaler achse abstand*/
+color: var(--text-color);
+font-size: var(--p-font);
+transition: all 0.6s ease;                                                               /* animations dauer wenn man mit dem courser auf die elemente geht und die Farbe sich änder */
+}
+
+.navlist a:hover {                                                                         /* farbe ändert sich wenn man mit dem COURSER DARÜBER die a elemente in navlist bewegt */
+    color: var(--main-color)
+}
+
+.right-content{
+    display: flex;                                                                           /* Flexbox eigenschaft innerhalb der klasse wird aktiviert, alle elemente innerhalb der klasse werden horizontal geordnet */
+    align-items: center;                                                                      /* werden alle Elemente mittig innerhalb der Klasse platizert ist eine Funktion von Flexbox */
+
+}
+
+.nav-btn {
+    display: inline-block;                                                                    /* alles in der Klasse nav-btn werden nebeneinander gelistet, kann auch ohen benutzt werden*/
+    padding: 9px 24px;                                                                         /* abstand innerer P B M */
+    background: transparent;                                                                   /* hintergrund von Sign In symbol nur */
+    border: 2px solid var(--text-color);                                                         /* der Rand vom Padding, Breite, Stil, Farbe */
+    border-radius: 14px;                                                                       /* Der Rand Abrunden */
+    color: var(--text-color);                                                                   /* Farbe des Textes */
+    font-size: 15px;                                                                             /*Größe des Textes */
+    font-weight: 500;                                                                              /* Dicke der Schrfit */
+    transition: all 0.5s ease;                                                                      /* Übergangsanimation */    
+}
+
+.nav-btn:hover {                                                                                 /* wenn der Courser über die Klasse geht wird das Element nach oben geschoben um 5px Y, der Rahmen und die Farbe ändern sich */
+    transform: translateY(-5px);    
+    border: 2px solid var(--main-color);
+    color: var(--main-color);
+}
+
+#menu-icon{
+    font-size: 42px;                                                                             /* icon vergrößert */
+    z-index: 10001;                                                                                /*über der Navbar um 1 damit er immer dadrüber ist wenn sie sich überlappen */
+    cursor: pointer;                                                                              /* das der Cursor sich zum Finger verändert wenn man dadrüber ist */ 
+    margin-left: 25px;                                                                              /* Margin nach Links erhöht, damit nicht so nah am Sign In ist */
+    display: none;                                                                                  /* Dass Element word vollständig entfernt aus dem layout nimm auch keinen Platz mehr*/    
+}
+
+section{
+    padding: 0 14%;                                                                                 /* oben unten 0 abstand im padding und 14% links recht */
+
+}
+.hero {
+    position: relative;                                                                             
+    width: 100%;                                                                                   /* Breite nimmt die komplette breite ein vom übergeordneten Container*/
+    height: 100vh;                                                                                  /* nimmt 100% vom Viewpoint der höhe vom browser an. der Sichtbare Breich */
+    background: url(../Bilder/bg.png);                                                                 /* Hintergrund */
+    background-size: cover;                                                                         /* nimmt den ganzen hintergrundbereich ein */
+    background-position: center;                                                                    /*zentral plaziert */
+    display: grid;                                                                                  /*Grid Layout wird verwendet */
+    grid-template-columns: 1fr 1fr;                                                          /* 2 Spalten ersteltt*/
+    align-items: center;                                                                            /* werden vertikal zentriert*/
+    gap: 2rem;                                                                                        /* Abstand zwischen den Grid elementen */
+}
+
+.hero-img img {
+    width: 100%;
+    height: auto;
+}
+
+.hero-text h1{
+
+    font-size: var(--big-font);
+    font-weight: 900;
+    margin: 15px 0;
+}
+
+.hero-text h5{
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.hero-text p {
+    width: 100%;
+    max-width: 620px;
+    font-size: var(--p-font);
+    font-weight: 400;
+    line-height: 32px;
+    color: var(--text-color);
+    margin-bottom: 40px;
+}
